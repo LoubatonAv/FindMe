@@ -5,9 +5,9 @@ import { Outlet } from "react-router-dom";
 
 const AppShell = () => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <main>
+      <main className="flex-1 w-full md:w-3/4 mx-auto p-6 bg-gray-50">
         <Outlet />
       </main>
       <Footer />
