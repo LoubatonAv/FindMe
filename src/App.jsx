@@ -13,19 +13,21 @@ import NearbyPage from "./features/nearby/NearbyPage";
 export function App() {
   return (
     <Routes>
-      <Route path="/" element={<AppShell />}>
-        <Route index element={<HomePage />} />
-        <Route
-          path="profile"
-          element={
-            <RequireAuth>
-              <ProfilePage />
-            </RequireAuth>
-          }
-        />
-        <Route path="signup" element={<SignUpPage />} />
-        <Route path="signin" element={<SignInPage />} />
-        <Route path="nearby" element={<NearbyPage />} />
+      {/* Public routes */}
+      <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/signin" element={<SignInPage />} />
+
+      {/* Protected routes under AppShell */}
+      <Route
+        element={
+          <RequireAuth>
+            <AppShell />
+          </RequireAuth>
+        }
+      >
+        <Route path="/" element={<HomePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/nearby" element={<NearbyPage />} />
       </Route>
     </Routes>
   );

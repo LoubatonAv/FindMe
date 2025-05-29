@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import db from "../../db";
 import ProfileCard from "./ProfileCard";
+import MapView from "./MapView";
 
 const NearbyPage = () => {
   const database = collection(db, "profiles");
@@ -25,10 +26,15 @@ const NearbyPage = () => {
   }, []);
 
   return (
-    <div className="grid grid-cols-4 gap-4 w-full">
-      {profiles.map((profile) => (
-        <ProfileCard key={profile.id} profile={profile} />
-      ))}
+    <div>
+      <div className="grid grid-cols-4 gap-4 w-full">
+        {profiles.map((profile) => (
+          <ProfileCard key={profile.id} profile={profile} />
+        ))}
+      </div>
+      <div className="py-10">
+        <MapView />
+      </div>
     </div>
   );
 };
