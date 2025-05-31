@@ -30,6 +30,10 @@ export default function SignUpPage() {
           bio: "",
           hobbies: [],
           createdAt: serverTimestamp(),
+          location: {
+            lng: 0,
+            lat: 0,
+          },
         };
         await setDoc(doc(db, "profiles", user.uid), profileData);
         navigate("/profile");
