@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+.marker-glow-wrapper {
+  position: relative;
+  width: 25px;
+  height: 41px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.marker-icon-img {
+  width: 25px;
+  height: 41px;
+  filter: drop-shadow(0 0 6px rgba(0, 191, 255, 1));
+}
